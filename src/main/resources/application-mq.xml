@@ -29,7 +29,7 @@
               id="amqpTemplate"
               exchange="test-mq-exchange"  
               connection-factory="connectionFactory"
-               routing-key="notify"
+               routing-key="xxx"
                      message-converter="messageConverter"
                      encoding="UTF-8"/>
      
@@ -40,16 +40,16 @@
    <!-- 180秒 -->  
 <!--     <rabbit:template id="amqpTemplate" reply-timeout="1000" connection-factory="rabbitConnFactory" message-converter="jsonMessageConverter" />
  -->    <!-- <rabbit:queue id="test_queue_key" name="test_queue_key" durable="true" auto-delete="false" exclusive="false" />  -->
-   <rabbit:queue name="xxx" durable="true">
+   <rabbit:queue name="xxx" durable="true" auto-delete="false" exclusive="false">
         <rabbit:queue-arguments>
             <entry key="x-message-ttl" value="30000" value-type="java.lang.Long"/>
         </rabbit:queue-arguments>
     </rabbit:queue>
    
     <!-- 交换机定义 -->
-    <rabbit:direct-exchange name="test-mq-exchange">
+    <rabbit:direct-exchange name="test-mq-exchange" durable="true" auto-delete="false">
     <rabbit:bindings>
-        <rabbit:binding queue="xxx" key="notify"/>
+        <rabbit:binding queue="xxx" key="xxx"/>
     </rabbit:bindings>
 </rabbit:direct-exchange>
 
