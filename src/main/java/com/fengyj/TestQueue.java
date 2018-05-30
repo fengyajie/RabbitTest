@@ -49,6 +49,6 @@ public class TestQueue{
         map.put("data", gson.toJson(data));
 
         Message message = new Message(gson.toJson(map).getBytes(), messageProperties);
-        rabbit.convertAndSend(message);
+        rabbit.convertAndSend("xxx-1",message);
     }
 }
