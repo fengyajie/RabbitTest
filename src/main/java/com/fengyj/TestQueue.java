@@ -23,16 +23,9 @@ public class TestQueue{
 
     private Gson gson = new GsonBuilder().serializeNulls().create();
 
-    @Autowired
-    MQProducer sender;
     
     @Autowired
     RabbitTemplate rabbit;
-
-    @Test
-    public void testSendString() throws Exception {
-        sender.sendDataToQueue("xxxx", "ssssssssssss");
-    }
 
     @Test
     public void send() throws Exception {
@@ -49,6 +42,6 @@ public class TestQueue{
         map.put("data", gson.toJson(data));
 
         Message message = new Message(gson.toJson(map).getBytes(), messageProperties);
-        rabbit.convertAndSend("xxx-1",message);
+        rabbit.convertAndSend("test-mq-exchange-1","xxx.w",message);
     }
 }

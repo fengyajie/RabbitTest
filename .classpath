@@ -32,6 +32,5 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/lijc/Desktop/yop-java-sdk-2.2.2.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
