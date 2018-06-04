@@ -157,6 +157,56 @@
 <version>4.0.0</version>
 </dependency>
 
-  
     </dependencies> 
+    
+    <profiles>
+  <profile>
+     <!-- 本地开发环境 -->
+     <id>dev</id>
+     <activation>
+       <activeByDefault>true</activeByDefault>
+     </activation>
+     <build>
+     <filters>
+        <filter>${basedir}/filters/dev/project-config.properties</filter>
+     </filters>
+     </build>
+     
+  </profile>
+  
+  <!-- 生产环境 -->
+   <profile>
+     <!-- 本地开发环境 -->
+     <id>pro</id>
+     <activation>
+       <activeByDefault>true</activeByDefault>
+     </activation>
+     <build>
+     <filters>
+        <filter>${basedir}/filters/pro/project-config.properties</filter>
+     </filters>
+     </build>
+     
+  </profile>
+</profiles>
+
+<build>
+
+<resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+        </resources>
+</build>
 </project>
