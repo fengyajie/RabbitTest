@@ -33,7 +33,6 @@
               id="amqpTemplate"
               exchange="test-mq-exchange-1"  
               connection-factory="connectionFactory"
-                     message-converter="messageConverter"
                       confirm-callback="msgSendConfirmCallBack"
               return-callback="msgReturnCallback"
               mandatory="true"

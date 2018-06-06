@@ -9,15 +9,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class MsgSendConfirmCallBack implements ConfirmCallback {
 	
-	@Autowired
-	private RabbitTemplate rabbitTemplate;
+	/*@Autowired
+	private RabbitTemplate rabbitTemplate;*/
 
 	
 	public void confirm(CorrelationData correlationData, boolean ack, String cause) {
 		if(!ack) {
 			
 		}else {
-			
+			System.out.println("消息确认：：：：：：：：：：：：");
 		}
 		
 	}

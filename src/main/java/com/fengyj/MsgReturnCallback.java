@@ -12,16 +12,16 @@ public class MsgReturnCallback implements ReturnCallback {
 	
 	private Logger logger = LoggerFactory.getLogger(MsgReturnCallback.class);
 
-	@Autowired
-	private RabbitTemplate rabbitTemplate;
+	/*@Autowired
+	private RabbitTemplate rabbitTemplate;*/
 	
 	public void returnedMessage(Message message, int replyCode, String replyText, String exchange, String routingKey) {
  
 		logger.error("发送信息失败,信息重发::::"+message.getBody());
 		//重新发布
-        RepublishMessageRecoverer recoverer = new RepublishMessageRecoverer(rabbitTemplate,"errorExchange", "errorRoutingKey");
+       /* RepublishMessageRecoverer recoverer = new RepublishMessageRecoverer(rabbitTemplate,"errorExchange", "errorRoutingKey");
         Throwable cause = new Exception(new Exception("route_fail_and_republish"));
-        recoverer.recover(message,cause);
+        recoverer.recover(message,cause);*/
 	}
 
 }
